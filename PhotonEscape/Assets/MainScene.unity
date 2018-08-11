@@ -218,24 +218,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 518272872}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 549b00adc228f334482d87da5aa28242, type: 3}
+  m_Script: {fileID: 11500000, guid: 0ec7905b292da174e935b0d5fed4101e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: Ingame
-    clip: {fileID: 0}
+  - name: Menu
+    clip: {fileID: 8300000, guid: 41271f1763ef1bc4bbcdb2bcd7d105e7, type: 3}
     volume: 1
-    pitch: 0.91
+    pitch: 1
     source: {fileID: 0}
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: InGame
+    clip: {fileID: 8300000, guid: c8efe3b5d2f78d64d95a5fbba46f15fa, type: 3}
+    volume: 1
+    pitch: 1
     source: {fileID: 0}
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: Death
+    clip: {fileID: 8300000, guid: 77935541b3b1f6347a132dd65cf3978e, type: 3}
+    volume: 1
+    pitch: 1
     source: {fileID: 0}
 --- !u!4 &518272874
 Transform:
@@ -258,8 +258,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1790052292}
-  - component: {fileID: 1790052291}
   - component: {fileID: 1790052293}
+  - component: {fileID: 1790052294}
+  - component: {fileID: 1790052291}
   m_Layer: 0
   m_Name: Particle
   m_TagString: Untagged
@@ -275,10 +276,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1790052290}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e77a60f2aa0b094dacfee92d48dd866, type: 3}
+  m_Script: {fileID: 11500000, guid: 5a0a3570bfae59a4d9888b388ce3e751, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  render: {fileID: 0}
+  render: {fileID: 1790052293}
+  boxCollider: {fileID: 1790052294}
+  BlackHole: {fileID: 0}
 --- !u!4 &1790052292
 Transform:
   m_ObjectHideFlags: 0
@@ -336,3 +339,28 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!61 &1790052294
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1790052290}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0.049999997, y: 0.049999997, z: 0.049999997, w: 0.049999997}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.16, y: 0.16}
+    newSize: {x: 0.16, y: 0.16}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.1, y: 0.1}
+  m_EdgeRadius: 0
