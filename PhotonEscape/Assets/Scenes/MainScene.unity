@@ -746,7 +746,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &444400472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -783,7 +783,6 @@ MonoBehaviour:
   SpawnMostWait: 0.2
   SpawnLeastWait: 0.6
   StartWait: 0
-  stop: 0
 --- !u!4 &444400473
 Transform:
   m_ObjectHideFlags: 0
@@ -2369,6 +2368,7 @@ MonoBehaviour:
   menu: {fileID: 1231975110}
   dead: {fileID: 1218965765}
   photon: {fileID: 395253385}
+  spawner: {fileID: 444400471}
   time: {fileID: 509280984}
 --- !u!1 &1608048729
 GameObject:

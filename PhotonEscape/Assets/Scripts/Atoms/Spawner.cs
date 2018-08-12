@@ -10,7 +10,7 @@ public class Spawner : MonoBehaviour {
 	public float SpawnMostWait;
 	public float SpawnLeastWait;
 	public int StartWait;
-	public bool stop;
+	//public bool stop;
 	int RandEnemy;		
 
 	private float SpawnWait;
@@ -27,7 +27,7 @@ public class Spawner : MonoBehaviour {
 
 	IEnumerator waitSpawner(){
 		yield return new WaitForSeconds (StartWait);
-		while (!stop) {
+		while (true) {
 			RandEnemy = Random.Range (0,4);
 			Vector3 SpawnPosition = new Vector3(SpawnValues.x,Random.Range(-SpawnValues.y,SpawnValues.y),0);
 			Instantiate(Enemies[RandEnemy],SpawnPosition + transform.TransformPoint(0,0,0),gameObject.transform.rotation);

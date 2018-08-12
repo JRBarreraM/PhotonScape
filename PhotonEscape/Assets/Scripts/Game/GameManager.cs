@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour {
 	public GameObject menu;
 	public GameObject dead;
 	public GameObject photon;
+	public GameObject spawner;
 	//public AudioManager music;
 	public Text time;
 
@@ -36,7 +37,7 @@ public class GameManager : MonoBehaviour {
 			//music.Play ("Menu");
 			menu.SetActive (true);
 			dead.SetActive (false);
-			//Spawner.stop = true;
+			spawner.SetActive (false);
 
 			if (usserAction) {
 				dead.SetActive (false);
@@ -52,6 +53,8 @@ public class GameManager : MonoBehaviour {
 			//Spawner.stop = false;
 			menu.SetActive (false);
 			dead.SetActive (false);
+			spawner.SetActive (true);
+
 		}
 
 		if (gameStates == GameStates.Dead) {
@@ -66,7 +69,7 @@ public class GameManager : MonoBehaviour {
 
 	void DeadMenu() {
 		dead.SetActive (true);
-		//Spawner.stop = true;
+		spawner.SetActive (false);
 		seconds = 0;
 		parallaxSpeed = 0f;
 	}
