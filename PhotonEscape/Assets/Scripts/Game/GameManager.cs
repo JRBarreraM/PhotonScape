@@ -14,7 +14,6 @@ public class GameManager : MonoBehaviour {
 	public GameObject dead;
 	public GameObject photon;
 	public GameObject spawner;
-	//public AudioManager music;
 	public Text time;
 
 	private bool usserAction;
@@ -27,14 +26,15 @@ public class GameManager : MonoBehaviour {
 		menu.SetActive (true);
 		dead.SetActive (false);
 
-		//music = GameObject.Find ("AudioManager").GetComponent<AudioManager> ();
 	}
 
 	void Update () {
 		usserAction = Input.GetKeyDown (KeyCode.Return);
 
 		if (gameStates == GameStates.Menu) {
-			//music.Play ("Menu");
+			FindObjectOfType<AudioManager>().Stop ("Death");
+			FindObjectOfType<AudioManager>().Play ("Menu");
+
 			menu.SetActive (true);
 			dead.SetActive (false);
 			spawner.SetActive (false);
@@ -50,9 +50,11 @@ public class GameManager : MonoBehaviour {
 		if (gameStates == GameStates.Playing) {
 			Parallax ();
 			InvokeRepeating("IncreaseTime",0f,Time.deltaTime);
-			//Spawner.stop = false;
 			menu.SetActive (false);
 			dead.SetActive (false);
+			FindObjectOfType<AudioManager>().Stop ("Menu");
+			FindObjectOfType<AudioManager>().Play ("InGame");
+
 			spawner.SetActive (true);
 
 		}
@@ -70,6 +72,9 @@ public class GameManager : MonoBehaviour {
 	void DeadMenu() {
 		dead.SetActive (true);
 		spawner.SetActive (false);
+		FindObjectOfType<AudioManager>().Stop ("InGame");
+		FindObjectOfType<AudioManager>().Play ("Death");
+
 		seconds = 0;
 		parallaxSpeed = 0f;
 	}

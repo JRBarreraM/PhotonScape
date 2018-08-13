@@ -902,16 +902,19 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 41271f1763ef1bc4bbcdb2bcd7d105e7, type: 3}
     volume: 1
     pitch: 1
+    loop: 1
     source: {fileID: 0}
   - name: InGame
     clip: {fileID: 8300000, guid: c8efe3b5d2f78d64d95a5fbba46f15fa, type: 3}
     volume: 1
     pitch: 1
+    loop: 1
     source: {fileID: 0}
   - name: Death
     clip: {fileID: 8300000, guid: 77935541b3b1f6347a132dd65cf3978e, type: 3}
     volume: 1
     pitch: 1
+    loop: 1
     source: {fileID: 0}
 --- !u!4 &518272874
 Transform:
