@@ -12,13 +12,12 @@ public class GameManager : MonoBehaviour {
 	public RawImage background;
 	public GameObject menu;
 	public GameObject dead;
-	public GameObject photon;
 	public GameObject spawner;
+	public GameObject light;
 	public Text time;
 
 	private bool usserAction;
-	private int timeAlive;
-	private int seconds = 1;
+	private float timeAlive;
 
 	public static GameStates gameStates = GameStates.Menu;
 
@@ -38,6 +37,7 @@ public class GameManager : MonoBehaviour {
 			menu.SetActive (true);
 			dead.SetActive (false);
 			spawner.SetActive (false);
+			light.SetActive (false);
 
 			if (usserAction) {
 				dead.SetActive (false);
@@ -49,7 +49,9 @@ public class GameManager : MonoBehaviour {
 
 		if (gameStates == GameStates.Playing) {
 			Parallax ();
-			InvokeRepeating("IncreaseTime",0f,Time.deltaTime);
+			timeAlive += Time.deltaTime;
+
+			light.SetActive (true);
 			menu.SetActive (false);
 			dead.SetActive (false);
 			FindObjectOfType<AudioManager>().Stop ("Menu");
@@ -60,7 +62,9 @@ public class GameManager : MonoBehaviour {
 		}
 
 		if (gameStates == GameStates.Dead) {
-			Invoke("DeadMenu",0.5f);
+			Destroy (light);
+			Invoke("DeadMenu",0.3f);
+			SetTime ();
 
 			if (usserAction && dead.activeSelf == true) {
 				gameStates = GameStates.Menu;
@@ -70,21 +74,16 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void DeadMenu() {
-		dead.SetActive (true);
-		spawner.SetActive (false);
 		FindObjectOfType<AudioManager>().Stop ("InGame");
 		FindObjectOfType<AudioManager>().Play ("Death");
+		dead.SetActive (true);
+		spawner.SetActive (false);
 
-		seconds = 0;
 		parallaxSpeed = 0f;
 	}
 
 	void SetTime(){
-		time.text = timeAlive.ToString();
-	}
-
-	void IncreaseTime() {
-		timeAlive += seconds;
+		time.text = (Mathf.RoundToInt(timeAlive)).ToString();
 	}
 
 	void Parallax() {

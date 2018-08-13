@@ -6,6 +6,8 @@ public class PlayerMovement : MonoBehaviour {
 	public float force;
 	public Rigidbody2D rb;
 	public GameObject center;
+	public GameObject BlackHole;
+	public Animator anim;
 
 	private float distance;
 	private float time;
@@ -38,17 +40,16 @@ public class PlayerMovement : MonoBehaviour {
 		}
 	}
 
-	void LoseMater() {
-		//Animacion de pardidad de luz
-	}
-
 	void LoseGame() {
-		Vector3 BlackHole = new Vector3 (-8f,0f,0f);
+		if (GameManager.gameStates != GameStates.Dead) {
+			anim.Play ("Faded");
+		}
+
 		GameManager.gameStates = GameStates.Dead;
 
 		force = 0f;
 		speed = 0f;
-		transform.Translate (BlackHole.normalized * Time.deltaTime,Space.World);
+		transform.position = Vector3.MoveTowards (transform.position,BlackHole.transform.position,Time.deltaTime);
 	}
 
 	void OnBecameInvisible() {
