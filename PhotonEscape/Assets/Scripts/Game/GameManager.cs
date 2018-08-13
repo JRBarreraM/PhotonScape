@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour {
 
 	private bool usserAction;
 	private float timeAlive;
+	private bool usserQuit;
 
 	public static GameStates gameStates = GameStates.Menu;
 
@@ -29,6 +30,8 @@ public class GameManager : MonoBehaviour {
 
 	void Update () {
 		usserAction = Input.GetKeyDown (KeyCode.Return);
+		usserQuit = Input.GetKeyDown ("q");
+
 
 		if (gameStates == GameStates.Menu) {
 			FindObjectOfType<AudioManager>().Stop ("Death");
@@ -44,6 +47,12 @@ public class GameManager : MonoBehaviour {
 				gameStates = GameStates.Playing;
 				menu.SetActive (false);
 			}
+
+			if (usserQuit) {
+				Debug.Log ("Quit!");
+				Application.Quit ();
+			}
+
 			Parallax ();
 		}
 
