@@ -1,9 +1,9 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Game\GameManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="..\..\..\EulerMovement.cs">
     <Files>
-      <File FileName="Assets\Scripts\Game\GameManager.cs" Line="65" Column="20" />
-      <File FileName="Assets\Scripts\Player\PlayerMovement.cs" Line="48" Column="3" />
+      <File FileName="Assets\Scripts\Player\PlayerMovement.cs" Line="1" Column="1" />
+      <File FileName="..\..\..\EulerMovement.cs" Line="4" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
